@@ -37,11 +37,11 @@ export class GetGithubCommitsInteractorInfraImpl
           new GithubCommitAccount(
             ac.author.login,
             ac.author.avatar_url,
+            ac.author.html_url,
             accountName,
             repositoryName,
           ),
-          accountName,
-          repositoryName,
+          ac.html_url,
         ),
     );
   }

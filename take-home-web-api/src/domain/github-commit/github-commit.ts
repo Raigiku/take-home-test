@@ -6,26 +6,20 @@ export class GithubCommit {
     readonly hash: string,
     readonly creationDate: Date,
     readonly author: GithubCommitAccount,
-    repositoryOwnerName: string,
-    repositoryName: string,
-  ) {
-    this.htmlUrl = `${githubUrl}/${repositoryOwnerName}/${repositoryName}/commit/${hash}`;
-  }
-
-  readonly htmlUrl: string;
+    readonly htmlUrl: string,
+  ) {}
 }
 
 export class GithubCommitAccount {
   constructor(
     readonly name: string,
     readonly pictureUrl: string,
+    readonly profileHtmlUrl: string,
     repositoryOwnerName: string,
     repositoryName: string,
   ) {
     this.commitsHtmlUrl = `${githubUrl}/${repositoryOwnerName}/${repositoryName}/commits?author=${name}`;
-    this.profileHtmlUrl = `${githubUrl}/${name}`;
   }
 
   readonly commitsHtmlUrl: string;
-  readonly profileHtmlUrl: string;
 }
