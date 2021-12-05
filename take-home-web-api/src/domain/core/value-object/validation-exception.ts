@@ -1,5 +1,5 @@
 export class ValidationException extends Error {
-  constructor(data: any) {
-    super(JSON.stringify(data));
+  constructor(readonly data: any) {
+    super('validation error');
   }
 }

@@ -14,7 +14,7 @@ export class HttpValidationExceptionFilter implements ExceptionFilter {
       statusCode: status,
       timestamp: new Date().toISOString(),
       path: request.url,
-      errors: JSON.parse(exception.message),
+      errors: exception.data,
     });
   }
 }
