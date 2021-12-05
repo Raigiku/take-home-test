@@ -63,8 +63,6 @@ const HomePage = () => {
 
   // load commits
   useEffect(() => {
-    // page changes
-    // branch changes
     const anyErrors =
       state.errorFields.errors.accountName.length > 0 ||
       state.errorFields.errors.repositoryName.length > 0;
@@ -100,6 +98,7 @@ const HomePage = () => {
     selectedBranch: string,
     page: number,
   ) => {
+    dispatch({ type: 'loading_commits' });
     const response = await WebApiGithubCommitService.getCommits(
       accountName,
       repositoryName,
@@ -126,6 +125,23 @@ const HomePage = () => {
     });
   };
 
+  const onClickRefreshCommits = async () => {
+    try {
+      await loadCommits(
+        state.searchedAccountName,
+        state.searchedRepositoryName,
+        state.selectedBranch,
+        state.page,
+      );
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const noErrors =
+    state.errorFields.errors.accountName.length === 0 &&
+    state.errorFields.errors.repositoryName.length === 0;
+
   return (
     <Grid container padding={2} gap={2}>
       <HomeTitle />
@@ -138,7 +154,7 @@ const HomePage = () => {
           onClickSearch={onClickSearch}
         />
 
-        {state.isLoadingBranches ? (
+        {state.isLoadingBranches && noErrors ? (
           <Grid item xs={12} textAlign='center'>
             <CircularProgress />
           </Grid>
@@ -170,6 +186,7 @@ const HomePage = () => {
               <GithubCommits
                 commits={state.commits}
                 isLoadingCommits={state.isLoadingCommits}
+                onClickRefreshCommits={onClickRefreshCommits}
               />
             )}
           </React.Fragment>

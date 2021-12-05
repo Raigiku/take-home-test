@@ -7,6 +7,7 @@ export type HomePageAction =
   | { type: 'branches_loaded'; branches: string[] }
   | { type: 'commits_loaded'; commits: GithubCommit[] }
   | { type: 'page_changed'; newPage: number }
+  | { type: 'loading_commits' }
   | {
       type: 'received_validation_error';
       errors: {
@@ -26,15 +27,15 @@ export const homePageReducer = (
       return {
         ...state,
         selectedBranch: action.newValue,
-        isLoadingCommits: true,
       };
+    case 'loading_commits':
+      return { ...state, isLoadingCommits: true };
     case 'page_changed':
-      return { ...state, page: action.newPage, isLoadingCommits: true };
+      return { ...state, page: action.newPage };
     case 'started_search':
       return {
         ...state,
         isLoadingBranches: true,
-        isLoadingCommits: true,
         searchedAccountName: state.formAccountName,
         searchedRepositoryName: state.formRepositoryName,
         page: 1,
