@@ -7,7 +7,13 @@ export class GithubCommit {
     readonly creationDate: Date,
     readonly author: GithubCommitAccount,
     readonly htmlUrl: string,
-  ) {}
+    repositoryOwnerName: string,
+    repositoryName: string,
+  ) {
+    this.repositoryAtThisPointHtmlUrl = `${githubUrl}/${repositoryOwnerName}/${repositoryName}/tree/${hash}`;
+  }
+
+  readonly repositoryAtThisPointHtmlUrl: string;
 }
 
 export class GithubCommitAccount {

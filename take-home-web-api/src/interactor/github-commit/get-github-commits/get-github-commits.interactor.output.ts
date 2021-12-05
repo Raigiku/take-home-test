@@ -5,6 +5,7 @@ export class GetGithubCommitsInteractorOutput {
     readonly creationDate: Date,
     readonly author: GetGithubCommitsInteractorOutputAccount,
     readonly htmlUrl: string,
+    readonly repositoryAtThisPointHtmlUrl: string,
   ) {}
 }
 

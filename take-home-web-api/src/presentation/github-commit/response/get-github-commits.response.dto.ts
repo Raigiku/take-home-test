@@ -29,4 +29,7 @@ export class GetGithubCommitsResponseDto {
 
   @ApiProperty()
   readonly htmlUrl!: string;
+
+  @ApiProperty()
+  readonly repositoryAtThisPointHtmlUrl!: string;
 }

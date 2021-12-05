@@ -49,6 +49,8 @@ export class GetGithubCommitsInteractorInfraImpl
               repositoryName,
             ),
         ac.html_url,
+        accountName,
+        repositoryName,
       );
     });
   }
