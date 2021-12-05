@@ -45,20 +45,6 @@ export const homePageInitialState: HomePageState = {
   searchedRepositoryName: '',
   branches: [],
   commits: [],
-  // Array(20).fill({
-  //   author: {
-  //     name: 'Raigiku',
-  //     commitsHtmlUrl:
-  //       'https://github.com/Raigiku/take-home-test/commits?author=Raigiku',
-  //     pictureUrl: 'https://avatars.githubusercontent.com/u/31873735?v=4',
-  //     profileHtmlUrl: 'https://github.com/Raigiku',
-  //   },
-  //   hash: 'fc4c726bfc0cca9ee32c3eaa33368e1588815d57',
-  //   message: 'Add null check for comitter in github api',
-  //   creationDate: new Date('2021-12-05T09:40:18Z'),
-  //   htmlUrl:
-  //     'https://github.com/Raigiku/take-home-test/commit/fc4c726bfc0cca9ee32c3eaa33368e1588815d57',
-  // }),
   page: 1,
   isLoadingBranches: undefined,
   isLoadingCommits: undefined,
