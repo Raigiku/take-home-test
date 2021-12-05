@@ -6,7 +6,4 @@ export class GetGithubCommitsParamDto {
 
   @ApiProperty()
   repositoryName!: string;
-
-  @ApiProperty()
-  branchName!: string;
 }

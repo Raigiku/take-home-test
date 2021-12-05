@@ -6,6 +6,7 @@ import {
 } from '../../interactor/github-commit';
 import { PaginationQueryDto } from '../core';
 import { GetGithubCommitsParamDto } from './request';
+import { GetGithubCommitsQueryDto } from './request/get-github-commits.query.dto';
 import {
   GetGithubCommitsErrorsDto,
   GetGithubCommitsResponseDto,
@@ -18,21 +19,20 @@ export class GithubCommitController {
     private readonly getGithubCommentsInt: GetGithubCommitsInteractor,
   ) {}
 
-  @Get(
-    'accounts/:accountName/repositories/:repositoryName/branches/:branchName/commits',
-  )
+  @Get('accounts/:accountName/repositories/:repositoryName/commits')
   @ApiResponse({ status: 400, type: GetGithubCommitsErrorsDto })
   @ApiResponse({ status: 200, type: GetGithubCommitsResponseDto })
   async getCommits(
     @Param() params: GetGithubCommitsParamDto,
-    @Query() queries: PaginationQueryDto,
+    @Query() queries: GetGithubCommitsQueryDto,
+    @Query() paginationQueries: PaginationQueryDto,
   ): Promise<GetGithubCommitsResponseDto[]> {
     const input = GetGithubCommitsInteractorInput.parse(
       params.accountName,
       params.repositoryName,
-      params.branchName,
-      queries.page,
-      queries.elementsPerPage,
+      queries.branchName,
+      paginationQueries.page,
+      paginationQueries.elementsPerPage,
     );
     const output = await this.getGithubCommentsInt.execute(input);
     return output;
