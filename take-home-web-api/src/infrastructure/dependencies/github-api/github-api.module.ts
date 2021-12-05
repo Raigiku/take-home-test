@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
-import { GithubCommitApiRepository } from '.';
+import { GithubBranchApiRepository, GithubCommitApiRepository } from '.';
 
 @Module({
-  providers: [GithubCommitApiRepository],
-  exports: [GithubCommitApiRepository],
+  providers: [GithubCommitApiRepository, GithubBranchApiRepository],
+  exports: [GithubCommitApiRepository, GithubBranchApiRepository],
 })
 export class GithubApiModule {}

@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
-import { GithubCommitModule } from './github-commit/github-commit.module';
+import { GithubBranchModule, GithubCommitModule } from '.';
 
 @Module({
-  imports: [GithubCommitModule],
-  exports: [GithubCommitModule],
+  imports: [GithubCommitModule, GithubBranchModule],
+  exports: [GithubCommitModule, GithubBranchModule],
 })
 export class InteractorInfraModule {}
