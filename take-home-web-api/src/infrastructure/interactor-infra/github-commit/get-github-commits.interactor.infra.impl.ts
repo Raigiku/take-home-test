@@ -36,7 +36,7 @@ export class GetGithubCommitsInteractorInfraImpl
         ac.author === null
           ? new GithubCommitAccount(
               ac.commit.author.name,
-              ac.committer.avatar_url,
+              ac.committer === null ? '' : ac.committer.avatar_url,
               '',
               accountName,
               repositoryName,

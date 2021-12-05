@@ -88,6 +88,6 @@ export interface GetGithubCommitResponseDto {
   html_url: string;
   comments_url: string;
   author: Author2 | null;
-  committer: Committer2;
+  committer: Committer2 | null;
   parents: Parent[];
 }
