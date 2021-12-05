@@ -29,12 +29,11 @@ export class GetGithubCommitsInteractorInfraImpl
       elementsPerPage,
     );
     return apiCommits.map((ac) => {
-      if (ac.author == null) console.dir(ac);
       return new GithubCommit(
         ac.commit.message,
         ac.sha,
         new Date(ac.commit.author.date),
-        ac.author === undefined
+        ac.author === null
           ? new GithubCommitAccount(
               ac.commit.author.name,
               ac.committer.avatar_url,
