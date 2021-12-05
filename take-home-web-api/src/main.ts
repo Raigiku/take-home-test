@@ -10,7 +10,7 @@ async function bootstrap(): Promise<void> {
   app.useGlobalFilters(new HttpValidationExceptionFilter());
 
   const config = new DocumentBuilder()
-    .setTitle('GitHub Commits')
+    .setTitle('Take Home Test API')
     .setVersion('1.0')
     .build();
   const document = SwaggerModule.createDocument(app, config);
