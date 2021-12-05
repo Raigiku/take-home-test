@@ -1,1 +1,1 @@
-export * from './get-github-commit.response.dto';
+export { GetGithubCommitResponseDto } from './get-github-commit.response.dto';
