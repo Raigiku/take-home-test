@@ -11,7 +11,7 @@ export class WebApiGithubBranchService {
     WebApiGetGithubBranchesResponse[] | WebApiGetGithubBranchesErrorResponse
   > {
     const response = await fetch(
-      `http://localhost:3001/accounts/${account}/repositories/${repository}/branches`,
+      `${process.env.REACT_APP_TKTR_API_URL}/accounts/${account}/repositories/${repository}/branches`,
       {
         method: 'GET',
         headers: { accept: 'application/json' },

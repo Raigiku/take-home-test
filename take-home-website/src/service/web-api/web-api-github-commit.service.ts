@@ -14,7 +14,7 @@ export class WebApiGithubCommitService {
       elementsPerPage: elementsPerPage.toString(),
     }).toString();
     const response = await fetch(
-      `http://localhost:3001/accounts/${account}/repositories/${repository}/commits?${queryString}`,
+      `${process.env.REACT_APP_TKTR_API_URL}/accounts/${account}/repositories/${repository}/commits?${queryString}`,
       {
         method: 'GET',
         headers: { accept: 'application/json' },
