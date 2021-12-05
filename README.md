@@ -26,7 +26,7 @@
 7. To verify, open a browser window to `http://localhost:PORT/swagger` (`PORT` is the port specified in Step 1).
 
 **Frontend (React - SPA)**
-1. Open the `take-home-website` directory,
+1. Open the `take-home-website` directory.
 
 2. Create the file `take-home-website/.env.development` and add the following environment variable to the file:
 ```
@@ -40,7 +40,7 @@ Where `PORT` is the port specified in Step 1 of the backend installation instruc
 
 5. Run the command `npm run start`.
 
-6. To verify, open a browser window to `http://localhost:REACT_PORT` (`REACT_PORT` is the port React tells you the application is on in the terminal window after you run the application)
+6. To verify, open a browser window to `http://localhost:REACT_PORT` (`REACT_PORT` is the port React tells you the application is on in the terminal window after you run the application).
 
 ## Notes
 In the following paragraphs I will explain the design decisions for the code structure of the backend project (NestJS - RESTful API). As the structure is complex and can be a bit difficult to understand. 
