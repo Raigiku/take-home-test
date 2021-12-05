@@ -6,6 +6,7 @@ import { HttpValidationExceptionFilter } from './presentation/core';
 
 async function bootstrap(): Promise<void> {
   const app = await NestFactory.create(AppModule);
+  app.enableCors();
   app.useGlobalPipes(new ValidationPipe({ transform: true }));
   app.useGlobalFilters(new HttpValidationExceptionFilter());
 
@@ -16,6 +17,6 @@ async function bootstrap(): Promise<void> {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('swagger', app, document);
 
-  await app.listen(3000);
+  await app.listen(3001);
 }
 bootstrap();
